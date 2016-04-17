@@ -16,25 +16,6 @@
     </nav>
 </template>
 
-<style scoped>
-    .breadcrumbs li {
-        display: inline-block;
-        vertical-align: middle;
-        color: #1a2831;
-        font-size: 16px;
-        font-weight: 300;
-    }
-    .breadcrumbs li a.v-link-active {
-        color: inherit;
-        text-decoration: none;
-    }
-    .breadcrumbs li:last-child a {
-        color: inherit;
-        text-decoration: none;
-        font-weight: 400;
-    }
-</style>
-
 <script>
     module.exports = {
         name: 'breadcrumbs',
