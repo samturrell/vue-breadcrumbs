@@ -1,6 +1,6 @@
 {
   "name": "vue-breadcrumbs",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Breadcrumbs for vue.js",
   "main": "index.js",
   "scripts": {
