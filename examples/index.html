@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vue Breadcrumbs example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="https://cdn.jsdelivr.net/vue/1.0.10/vue.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/0.7.13/vue-router.min.js"></script>
+    <script src="../dist/vue-breadcrumbs.min.js"></script>
+    <style type="text/css">
+        nav.breadcrumbs ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav.breadcrumbs ul li {
+            display: inline-block;
+        }
+        nav.breadcrumbs ul li:before {
+            content: '/';
+            margin-left: 5px;
+        }
+        nav.breadcrumbs ul li:first-child:before {
+            display: none;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Hello App!</h1>
+      <breadcrumbs></breadcrumbs>
+      <p>
+        <!-- use v-link directive for navigation. -->
+        <a v-link="{ path: '/' }">Home</a>
+        <a v-link="{ path: '/foo' }">Foo</a>
+        <a v-link="{ path: '/bar' }">Bar</a>
+        <a v-link="{ path: '/about' }">About</a>
+        <a v-link="{ path: '/about/foo' }">About Foo</a>
+        <a v-link="{ path: '/about/bar' }">About Bar</a>
+      </p>
+      <!-- use router-view element as route outlet -->
+      <router-view></router-view>
+      <h2>Matched routes ({{ $breadcrumbs.length }}):</h2>
+      <pre>
+        {{ $breadcrumbs | json }}
+      </pre>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
