@@ -6,6 +6,7 @@ var babel = require('rollup-plugin-babel')
 var replace = require('rollup-plugin-replace')
 var pack = require('../package.json')
 var banner = require('./banner')
+var changelog = require('changelog')
 
 // update main file
 var main = fs
@@ -77,6 +78,13 @@ rollup.rollup({
   .then(zip)
 })
 .catch(logError)
+
+// Generate changelog
+changelog.generate('vue-breadcrumbs')
+    .then(function(data) {
+        fs.writeFile("CHANGELOG.md", changelog.markdown(data));
+    });
+
 
 function toUpper (_, c) {
   return c ? c.toUpperCase() : ''
