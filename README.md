@@ -15,7 +15,7 @@ Vue.use(VueBreadcrumbs)
 or with browserify/bundler:
 
 ```sh
-$ npm install vue-plugin-boilerplate
+$ npm install vue-breadcrumbs
 ```
 
 ```
