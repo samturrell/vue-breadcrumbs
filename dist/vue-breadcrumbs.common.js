@@ -1,5 +1,5 @@
 /*!
- * vue-breadcrumbs v0.2.2
+ * vue-breadcrumbs v0.3.0
  * (c) 2016 Sam Turrell
  * Released under the MIT License.
  */
@@ -27,6 +27,6 @@ function plugin(Vue) {
   });
 }
 
-plugin.version = '0.2.2';
+plugin.version = '0.3.0';
 
 module.exports = plugin;
