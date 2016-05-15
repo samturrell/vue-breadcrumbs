@@ -45,7 +45,7 @@ router.map({
 })
 ```
 
-You can then render the breadcrumbs using the included <breadcrumbs> component or using your own markup logic with the `this.$breadcrumbs()` method which will return an array of active routes.
+You can then render the breadcrumbs using the included <breadcrumbs> component or using your own markup logic with the `this.$breadcrumbs` property which will return an array of active routes.
 
 # License
 
