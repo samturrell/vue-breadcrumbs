@@ -2,13 +2,22 @@ function plugin (Vue, options = {}) {
   Object.defineProperties(Vue.prototype, {
     $breadcrumbs: {
       get: function () {
-        var crumbs = []
+        var crumbs = [];
         for (var i = 0; i < this.$route.matched.length; i++) {
           if (this.$route.matched[i].handler && this.$route.matched[i].handler.breadcrumb) {
-            crumbs.push(this.$route.matched[i])
+            crumbs.push(this.$route.matched[i]);
           }
         }
-        return crumbs
+        return crumbs;
+      },
+    },
+    $breadcrumb: {
+      set: function(breadcrumb) {
+        if (this.$route.matched.length) {
+          // Router object is frozen so won't trigger 
+          // an update. How do I get around this?
+          this.$route.matched[0].handler.breadcrumb = breadcrumb;
+        }
       }
     }
   })
@@ -18,6 +27,6 @@ function plugin (Vue, options = {}) {
   })
 }
 
-plugin.version = '0.3.0'
+plugin.version = '0.3.1'
 
 export default plugin

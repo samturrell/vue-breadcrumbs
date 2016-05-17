@@ -1,5 +1,5 @@
 /*!
- * vue-breadcrumbs v0.3.0
+ * vue-breadcrumbs v0.3.1
  * (c) 2016 Sam Turrell
  * Released under the MIT License.
  */
@@ -19,6 +19,15 @@ function plugin(Vue) {
         }
         return crumbs;
       }
+    },
+    $breadcrumb: {
+      set: function set(breadcrumb) {
+        if (this.$route.matched.length) {
+          // Router object is frozen so won't trigger
+          // an update. How do I get around this?
+          this.$route.matched[0].handler.breadcrumb = breadcrumb;
+        }
+      }
     }
   });
 
@@ -27,6 +36,6 @@ function plugin(Vue) {
   });
 }
 
-plugin.version = '0.3.0';
+plugin.version = '0.3.1';
 
 module.exports = plugin;

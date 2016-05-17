@@ -1,3 +1,5 @@
+Vue.config.debug = true;
+
 // define some components
 var Foo = Vue.extend({
   template: '<p>This is foo!</p>'
@@ -8,10 +10,14 @@ var Bar = Vue.extend({
 })
 
 var Page = Vue.extend({
-  template: '<p>This is a page!</p>'
+  template: '<p>This is a page!</p>',
+  route: {
+    activate: function() {
+      this.$breadcrumb = Date();
+    }
+  }
 })
 
-Vue.use(VueBreadcrumbs)
 
 // the router needs a root component to render.
 // for demo purposes, we will just use an empty one
@@ -28,6 +34,7 @@ var App = Vue.extend({
 // you can pass in additional options here, but
 // let's keep it simple for now.
 var router = new VueRouter()
+Vue.use(VueBreadcrumbs)
 
 
 // define some routes.
