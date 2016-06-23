@@ -3,9 +3,6 @@
   <head>
     <title>Vue Breadcrumbs example</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.24/vue.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/0.7.13/vue-router.js"></script>
-    <script src="../dist/vue-breadcrumbs.min.js"></script>
     <style type="text/css">
         nav.breadcrumbs ul {
             list-style: none;
@@ -32,18 +29,21 @@
         <!-- use v-link directive for navigation. -->
         <a v-link="{ path: '/' }">Home</a>
         <a v-link="{ path: '/foo' }">Foo</a>
-        <a v-link="{ path: '/bar' }">Bar</a>
-        <a v-link="{ path: '/about' }">About</a>
-        <a v-link="{ path: '/about/foo' }">About Foo</a>
-        <a v-link="{ path: '/about/bar' }">About Bar</a>
+        <a v-link="{ path: '/news' }">News</a>
       </p>
       <!-- use router-view element as route outlet -->
-      <router-view></router-view>
+      <div>
+          <router-view></router-view>
+      </div>
       <h2>Matched routes ({{ $breadcrumbs.length }}):</h2>
       <pre>
         {{ $breadcrumbs | json }}
       </pre>
     </div>
-    <script src="./index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.24/vue.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/0.7.13/vue-router.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.12.0/lodash.js"></script>
+    <script src="../dist/vue-breadcrumbs.min.js"></script>
+    <script src="/examples/index.js"></script>
   </body>
 </html>

@@ -9,6 +9,41 @@ var Bar = Vue.extend({
   template: '<p>This is bar!</p>'
 })
 
+var News = Vue.extend({
+  route: {
+    setBreadcrumb: function() {
+      this.$breadcrumb = 'News (2)';
+    },
+    activate: function() {
+
+    }
+  },
+    template: '<p><ul><li><a v-link="{ path: \'/news/article1\' }">Article 1</a></li><li><a v-link="{ path: \'/news/article2\' }">Article 2</a></li></ul></p><router-view></router-view>'
+})
+
+var ArticleOne = Vue.extend({
+  route: {
+    activate: function() {
+        console.log("a 1 active");
+      this.$breadcrumb = 'Article 1 title, yo';
+    }
+  },
+  template: '<p><ul><li><a v-link="{ path: \'/news/article1/comments\' }">Comments</a></li></ul></p><router-view></router-view>'
+})
+
+var ArticleTwo = Vue.extend({
+  route: {
+    activate: function() {
+      this.$breadcrumb = 'Article 2 title, yo';
+    }
+  },
+  template: '<p>Article 2</p>'
+})
+
+var Comments = Vue.extend({
+  template: '<p>Comments!</p>'
+})
+
 var Page = Vue.extend({
   template: '<p>This is a page!</p>',
   route: {
@@ -34,13 +69,7 @@ var App = Vue.extend({
 // you can pass in additional options here, but
 // let's keep it simple for now.
 var router = new VueRouter()
-Vue.use(VueBreadcrumbs)
-
-
-// define some routes.
-// each route should map to a component.
-// we'll talk about nested routes later.
-router.map({
+routes = {
   '/': {
     breadcrumb: 'Home Page',
     component: Page,
@@ -49,25 +78,35 @@ router.map({
     component: Foo,
     breadcrumb: 'Foo Page'
   },
-  '/bar': {
-    component: Bar,
-    breadcrumb: 'Bar Page'
-  },
-  'about': {
-    component: Page,
-    breadcrumb: 'About Us',
+  '/news': {
+    component: News,
+    breadcrumb: 'News',
     subRoutes: {
-      '/foo': {
-        component: Foo,
-        breadcrumb: 'Foo About'
+      '/article1': {
+        component: ArticleOne,
+        breadcrumb: 'Article 1 Placeholder',
+        subRoutes: {
+            '/comments': {
+                component: Comments,
+                breadcrumb: 'Comments'
+            }
+        }
       },
-      '/bar': {
-        component: Bar,
-        breadcrumb: 'Bar About'
+      '/article2': {
+        component: ArticleTwo,
+        breadcrumb: 'Article 2 Placeholder'
       },
     }
   }
-})
+};
+Vue.use(VueBreadcrumbs, routes);
+
+
+// define some routes.
+// each route should map to a component.
+// we'll talk about nested routes later.
+
+router.map(Vue.routes)
 
 // now we can start the app!
 // router will create an instance of App and mount to
