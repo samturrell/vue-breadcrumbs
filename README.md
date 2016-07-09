@@ -4,11 +4,11 @@ Vue breadcrumbs builds on the official vue-router package to provide simple brea
 
 # Usage
 
-```
+```html
 <script src="../dist/vue-breadcrumbs.min.js"></script>
 ```
 
-```
+```js
 Vue.use(VueBreadcrumbs)
 ```
 
@@ -18,7 +18,7 @@ or with browserify/bundler:
 $ npm install vue-breadcrumbs
 ```
 
-```
+```js
 var VueBreadcrumbs = require('vue-breadcrumbs')
 
 Vue.use(VueBreadcrumbs)
@@ -26,7 +26,7 @@ Vue.use(VueBreadcrumbs)
 
 Define the matching breadcrumb text in your vue-router routes as the `breadcrumb:` property of a route or subRoute, e.g.:
 
-```
+```js
 router.map({
   '/': {
     component: Page,
