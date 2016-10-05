@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Vue Breadcrumbs example</title>
+    <title>Vue Breadcrumbs example for Vue 2.0</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script src="https://cdn.jsdelivr.net/vue/1.0.10/vue.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/0.7.13/vue-router.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/vue/2.0.1/vue.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/vue-router@2.0.0"></script>
     <script src="../dist/vue-breadcrumbs.min.js"></script>
     <style type="text/css">
         nav.breadcrumbs ul {
@@ -30,18 +30,18 @@
       <breadcrumbs></breadcrumbs>
       <p>
         <!-- use v-link directive for navigation. -->
-        <a v-link="{ path: '/' }">Home</a>
-        <a v-link="{ path: '/foo' }">Foo</a>
-        <a v-link="{ path: '/bar' }">Bar</a>
-        <a v-link="{ path: '/about' }">About</a>
-        <a v-link="{ path: '/about/foo' }">About Foo</a>
-        <a v-link="{ path: '/about/bar' }">About Bar</a>
+        <router-link :to="{ path: '/' }">Home</router-link>
+        <router-link :to="{ path: '/foo' }">Foo</router-link>
+        <router-link :to="{ path: '/bar' }">Bar</router-link>
+        <router-link :to="{ path: '/about' }">About</router-link>
+        <router-link :to="{ path: '/about/foo' }">About Foo</router-link>
+        <router-link :to="{ path: '/about/bar' }">About Bar</router-link>
       </p>
       <!-- use router-view element as route outlet -->
       <router-view></router-view>
       <h2>Matched routes ({{ $breadcrumbs.length }}):</h2>
       <pre>
-        {{ $breadcrumbs | json }}
+        {{ $breadcrumbs }}
       </pre>
     </div>
     <script src="./index.js"></script>
