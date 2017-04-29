@@ -1,3 +1,11 @@
+0.3.1 / 2016-05-15
+==================
+
+  * 0.3.1
+  * Property not method
+  * Added changelog generator
+  * Updated readme
+
 0.3.0 / 2016-05-14
 ==================
 

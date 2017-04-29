@@ -3,8 +3,10 @@
   <head>
     <title>Vue Breadcrumbs example</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script src="https://cdn.jsdelivr.net/vue/1.0.10/vue.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/0.7.13/vue-router.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/vue/2.3.0/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/2.5.2/vue-router.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/vue/1.0.10/vue.js"></script>-->
+    <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/0.7.13/vue-router.js"></script>-->
     <script src="../dist/vue-breadcrumbs.min.js"></script>
     <style type="text/css">
         nav.breadcrumbs ul {
@@ -30,20 +32,20 @@
       <breadcrumbs></breadcrumbs>
       <p>
         <!-- use v-link directive for navigation. -->
-        <a v-link="{ path: '/' }">Home</a>
-        <a v-link="{ path: '/foo' }">Foo</a>
-        <a v-link="{ path: '/bar' }">Bar</a>
-        <a v-link="{ path: '/about' }">About</a>
-        <a v-link="{ path: '/about/foo' }">About Foo</a>
-        <a v-link="{ path: '/about/bar' }">About Bar</a>
+        <router-link to="/">Home</router-link>
+        <router-link to="/foo">Foo</router-link>
+        <router-link to="/bar">Bar</router-link>
+        <router-link to="/about">About</router-link>
+        <router-link to="/about/foo">About Foo</router-link>
+        <router-link to="/about/bar">About Bar</router-link>
+        <router-link to="/items">Items</router-link>
+        <router-link to="/items/1">Item #1</router-link>
+        <router-link to="/items/2">Item #2</router-link>
       </p>
       <!-- use router-view element as route outlet -->
       <router-view></router-view>
-      <h2>Matched routes ({{ $breadcrumbs.length }}):</h2>
-      <pre>
-        {{ $breadcrumbs | json }}
-      </pre>
+      <h2>Matched routes ({{ $breadcrumbs.length }})</h2>
     </div>
-    <script src="./index.js"></script>
+    <script src="./examples/index.js"></script>
   </body>
 </html>
