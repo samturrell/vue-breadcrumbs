@@ -81,9 +81,9 @@ rollup.rollup({
 
 // Generate changelog
 changelog.generate('vue-breadcrumbs')
-    .then(function(data) {
-        fs.writeFile("CHANGELOG.md", changelog.markdown(data));
-    });
+  .then(function (data) {
+    fs.writeFile('CHANGELOG.md', changelog.markdown(data))
+  })
 
 
 function toUpper (_, c) {
