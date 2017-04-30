@@ -1,5 +1,3 @@
-
-
 # vue-breadcrumbs
 
 [![npm](https://img.shields.io/npm/dt/vue-breadcrumbs.svg)](https://www.npmjs.com/package/vue-breadcrumbs)
