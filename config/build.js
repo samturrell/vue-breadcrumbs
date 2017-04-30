@@ -45,7 +45,12 @@ rollup.rollup({
     ]
   })
   .then(function (bundle) {
-    return write('dist/' + pack.name + '.js', bundle.generate({
+    write('dist/' + pack.name + '.js', bundle.generate({
+      format: 'umd',
+      banner: banner,
+      moduleName: classify(pack.name)
+    }).code)
+    write('docs/' + pack.name + '.js', bundle.generate({
       format: 'umd',
       banner: banner,
       moduleName: classify(pack.name)

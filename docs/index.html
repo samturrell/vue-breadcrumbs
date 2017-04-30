@@ -3,11 +3,6 @@
   <head>
     <title>Vue Breadcrumbs example</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script src="https://cdn.jsdelivr.net/vue/2.3.0/vue.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/2.5.2/vue-router.js"></script>
-    <!--<script src="https://cdn.jsdelivr.net/vue/1.0.10/vue.js"></script>-->
-    <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/0.7.13/vue-router.js"></script>-->
-    <script src="../dist/vue-breadcrumbs.min.js"></script>
     <style type="text/css">
         nav.breadcrumbs ul {
             list-style: none;
@@ -46,6 +41,12 @@
       <router-view></router-view>
       <h2>Matched routes ({{ $breadcrumbs.length }})</h2>
     </div>
+    <script src="https://cdn.jsdelivr.net/vue/2.3.0/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/2.5.2/vue-router.js"></script>
+    <!-- Uncomment to test Vue 1.x -->
+    <!--<script src="https://cdn.jsdelivr.net/vue/1.0.10/vue.js"></script>-->
+    <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/0.7.13/vue-router.js"></script>-->
+    <script src="./vue-breadcrumbs.min.js"></script>
     <script src="./examples/index.js"></script>
   </body>
 </html>
