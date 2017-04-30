@@ -1,9 +1,12 @@
+[![npm](https://img.shields.io/npm/dt/vue-breadcrumbs.svg)]()
+[![npm](https://img.shields.io/npm/v/vue-breadcrumbs.svg)]()
+[![GitHub stars](https://img.shields.io/github/stars/samturrell/vue-breadcrumbs.svg?style=social&label=Star)]()
+
 # vue-breadcrumbs
 
-Vue breadcrumbs builds on the official vue-router package to provide simple breadcrumbs. 
+Vue breadcrumbs builds on the official vue-router package to provide simple breadcrumbs. This package is backwards compatible to support both Vue 1.x and Vue 2.x. 
 
-# Usage
-
+## Installation
 ```html
 <script src="../dist/vue-breadcrumbs.min.js"></script>
 ```
@@ -12,19 +15,24 @@ Vue breadcrumbs builds on the official vue-router package to provide simple brea
 Vue.use(VueBreadcrumbs)
 ```
 
-or with browserify/bundler:
+or via npm:
 
 ```sh
 $ npm install vue-breadcrumbs
 ```
 
 ```js
-var VueBreadcrumbs = require('vue-breadcrumbs')
+import VueBreadcrumbs from 'vue-breadcrumbs'
 
 Vue.use(VueBreadcrumbs)
 ```
 
-Define the matching breadcrumb text in your vue-router routes as the `breadcrumb:` property of a route or subRoute, e.g.:
+Define the matching breadcrumb text in your routes.
+
+## Usage
+### Vue 1.x 
+
+Use the `breadcrumb:` property of a route or subRoute, e.g.:
 
 ```js
 router.map({
@@ -44,8 +52,42 @@ router.map({
   }
 })
 ```
+ 
+### Vue 2.x
 
-You can then render the breadcrumbs using the included <breadcrumbs> component or using your own markup logic with the `this.$breadcrumbs` property which will return an array of active routes.
+Use the `meta.breadcrumb:` property of a route or child route, e.g.:
+
+```js
+new VueRouter({
+  routes: [
+    {
+      path: '/', 
+      component: Page,
+      meta: {
+        breadcrumb: 'Home Page',
+      },
+      children: [
+        {
+          path: '/foo', 
+          component: Foo,
+          meta: {
+            breadcrumb: 'Foo Page'  
+          }
+        },
+        {
+          path: '/bar', 
+          component: Bar,
+          meta: {
+            breadcrumb: 'Bar Page'
+          }
+        }
+      ]
+    }
+  ]
+})
+```
+
+You can then render the breadcrumbs using the included `<breadcrumbs>` component or using your own markup logic with the global `this.$breadcrumbs` property which will return an array of active matched routes.
 
 # License
 
