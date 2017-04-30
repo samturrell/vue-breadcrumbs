@@ -11,9 +11,9 @@
 
 # vue-breadcrumbs
 
-[![npm](https://img.shields.io/npm/dt/vue-breadcrumbs.svg)]()
-[![npm](https://img.shields.io/npm/v/vue-breadcrumbs.svg)]()
-[![GitHub stars](https://img.shields.io/github/stars/samturrell/vue-breadcrumbs.svg?style=social&label=Star)]()
+[![npm](https://img.shields.io/npm/dt/vue-breadcrumbs.svg)](https://www.npmjs.com/package/vue-breadcrumbs)
+[![npm](https://img.shields.io/npm/v/vue-breadcrumbs.svg)](https://www.npmjs.com/package/vue-breadcrumbs)
+[![GitHub stars](https://img.shields.io/github/stars/samturrell/vue-breadcrumbs.svg?style=social&label=Star)](http://github.com/samturrell/vue-breadcrumbs)
 
 Vue breadcrumbs builds on the official vue-router package to provide simple breadcrumbs. This package is backwards compatible to support both Vue 1.x and Vue 2.x.
  
