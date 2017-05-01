@@ -4,6 +4,9 @@
     <title>Vue Breadcrumbs example</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <style type="text/css">
+        [v-cloak] {
+          display: none;
+        }
         nav.breadcrumbs ul {
             list-style: none;
             margin: 0;
@@ -28,11 +31,10 @@
 
         ga('create', 'UA-49744331-2', 'auto');
         ga('send', 'pageview');
-
     </script>
   </head>
   <body>
-    <div id="app">
+    <div id="app" v-cloak>
       <h1>Hello App!</h1>
       <breadcrumbs></breadcrumbs>
       <p>
