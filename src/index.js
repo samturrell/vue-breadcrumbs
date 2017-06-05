@@ -1,4 +1,4 @@
-function install (Vue) {
+function install (Vue, options) {
   function getMatchedRoutes (routes) {
     // Convert to an array if Vue 1.x
     if (parseFloat(Vue.version) < 2) {
@@ -34,8 +34,7 @@ function install (Vue) {
     }
   })
 
-  // Add a default breadcrumbs component
-  Vue.component('breadcrumbs', {
+  var defaults = {
     methods: {
       // Return the correct prop data
       linkProp: function (crumb) {
@@ -50,8 +49,8 @@ function install (Vue) {
 
         return {
           path: (crumb.handler && crumb.handler.fullPath)
-            ? crumb.handler.fullPath
-            : crumb.path,
+              ? crumb.handler.fullPath
+              : crumb.path,
           params: this.$route.params
         }
       }
@@ -66,13 +65,16 @@ function install (Vue) {
     },
 
     template: '<nav class="breadcrumbs" v-if="$breadcrumbs.length"> ' +
-              '<ul> ' +
-              '<li v-for="crumb in $breadcrumbs"> ' +
-              '<router-link :to="linkProp(crumb)">{{ crumb | crumbText }}</router-link> ' +
-              '</li> ' +
-              '</ul> ' +
-              '</nav>'
-  })
+    '<ul> ' +
+    '<li v-for="crumb in $breadcrumbs"> ' +
+    '<router-link :to="linkProp(crumb)">{{ crumb | crumbText }}</router-link> ' +
+    '</li> ' +
+    '</ul> ' +
+    '</nav>'
+  }
+
+  // Add a default breadcrumbs component
+  Vue.component('breadcrumbs', Object.assign(defaults, options))
 }
 
 export default {
