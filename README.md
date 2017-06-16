@@ -31,6 +31,16 @@ Vue.use(VueBreadcrumbs)
 
 Define the matching breadcrumb text in your routes.
 
+An options object can also be passed into the plugin to specify your own template and rendering methods if desired. For example:
+
+```js
+Vue.use(VueBreadcrumbs, {
+  template: '<nav class="breadcrumb" v-if="$breadcrumbs.length"> ' +
+    '<router-link class="breadcrumb-item" v-for="(crumb, key) in $breadcrumbs" :to="linkProp(crumb)" :key="key">{{ crumb | crumbText }}</router-link> ' +
+    '</nav>'
+});
+```
+
 ## Usage
 ### Vue 1.x 
 
