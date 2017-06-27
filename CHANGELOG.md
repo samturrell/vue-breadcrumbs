@@ -1,3 +1,27 @@
+1.1.1 / 2017-06-16
+==================
+
+  * 1.1.1
+  * Added options parameter to docs
+
+1.1.0 / 2017-06-16
+==================
+
+  * 1.1.0
+  * Merge pull request [#10](https://github.com/samturrell/vue-breadcrumbs/issues/10) from CasperLaiTW/support-options
+    Support options for overwriting default configure
+  * Support options for overwriting default configure
+  * Updates README to piint to live example, and update example to v-cloak content
+  * analytics on example
+  * removed ga
+  * Linked up buttons
+  * analytics
+  * link to demo
+  * Docs on main site
+  * Fixed Script location
+  * Docs folder
+  * Version bump and updated changelog
+
 1.0.0 / 2017-04-30
 ==================
 
