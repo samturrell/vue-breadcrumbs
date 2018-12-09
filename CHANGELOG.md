@@ -1,3 +1,18 @@
+1.2.0 / 2018-12-09
+==================
+
+  * Version bump
+  * 1.2.0
+  * Build
+  * 1.1.2 changelog commit
+  * Updates readme
+  * Fixed default options
+  * Merge pull request [#18](https://github.com/samturrell/vue-breadcrumbs/issues/18) from HermannBjorgvin/optional-component
+    Added option to disable global component
+  * Changed option to 'registerComponent'
+  * Made the global breadcrumbs component optional
+    This commit makes the global breadcrumbs component optional by setting options.skipComponent to true.
+
 1.1.2 / 2017-06-27
 ==================
 
