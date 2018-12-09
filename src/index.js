@@ -35,6 +35,8 @@ function install (Vue, options) {
   })
 
   var defaults = {
+    registerComponent: true,
+
     methods: {
       // Return the correct prop data
       linkProp: function (crumb) {
@@ -73,9 +75,11 @@ function install (Vue, options) {
     '</nav>'
   }
 
+  options = Object.assign(defaults, options)
+
   // Add a default breadcrumbs component
-  if (options.registerComponent !== false) {
-    Vue.component('breadcrumbs', Object.assign(defaults, options))
+  if (options.registerComponent) {
+    Vue.component('breadcrumbs', options)
   }
 }
 
