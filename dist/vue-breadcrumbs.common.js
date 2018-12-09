@@ -1,5 +1,5 @@
 /*!
- * vue-breadcrumbs v1.1.2
+ * vue-breadcrumbs v1.2.0
  * (c) 2018 Sam Turrell
  * Released under the MIT License.
  */
