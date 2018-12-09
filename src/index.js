@@ -74,7 +74,9 @@ function install (Vue, options) {
   }
 
   // Add a default breadcrumbs component
-  Vue.component('breadcrumbs', Object.assign(defaults, options))
+  if (options.registerComponent !== false) {
+    Vue.component('breadcrumbs', Object.assign(defaults, options))
+  }
 }
 
 export default {
