@@ -41,6 +41,16 @@ Vue.use(VueBreadcrumbs, {
 });
 ```
 
+By default the plugin will autoregister a `breadcrumbs` component which is globally accessible in your app (thanks to [HermannBjorgvin](https://github.com/HermannBjorgvin). To disable this functionality you can set the `registerComponent` option to `false` when registering the component, like so:
+
+```js
+Vue.use(VueBreadcrumbs, {
+  registerComponent: false
+});
+```
+
+Note: if referencing directly in the browser rather than as a module, there is no way to stop the default component from registering.
+
 ## Usage
 ### Vue 1.x 
 
