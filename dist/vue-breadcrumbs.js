@@ -1,6 +1,6 @@
 /*!
- * vue-breadcrumbs v1.1.1
- * (c) 2017 Sam Turrell
+ * vue-breadcrumbs v1.1.2
+ * (c) 2018 Sam Turrell
  * Released under the MIT License.
  */
 (function (global, factory) {
@@ -44,6 +44,8 @@
     });
 
     var defaults = {
+      registerComponent: true,
+
       methods: {
         // Return the correct prop data
         linkProp: function linkProp(crumb) {
@@ -74,8 +76,12 @@
       template: '<nav class="breadcrumbs" v-if="$breadcrumbs.length"> ' + '<ul> ' + '<li v-for="crumb in $breadcrumbs"> ' + '<router-link :to="linkProp(crumb)">{{ crumb | crumbText }}</router-link> ' + '</li> ' + '</ul> ' + '</nav>'
     };
 
+    options = Object.assign(defaults, options);
+
     // Add a default breadcrumbs component
-    Vue.component('breadcrumbs', Object.assign(defaults, options));
+    if (options.registerComponent) {
+      Vue.component('breadcrumbs', options);
+    }
   }
 
   var index = {
