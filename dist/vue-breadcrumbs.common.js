@@ -6,7 +6,7 @@
 'use strict';
 
 function install(Vue, options) {
-  function getMatchedRoutes(routes) {
+  var getMatchedRoutes = function getMatchedRoutes(routes) {
     // Convert to an array if Vue 1.x
     if (parseFloat(Vue.version) < 2) {
       routes = Object.keys(routes).filter(function (key) {
@@ -17,25 +17,14 @@ function install(Vue, options) {
     }
 
     return routes;
-  }
+  };
 
   // Add the $breadcrumbs property to the Vue instance
   Object.defineProperty(Vue.prototype, '$breadcrumbs', {
     get: function get() {
-      var crumbs = [];
-
-      var matched = getMatchedRoutes(this.$route.matched);
-
-      matched.forEach(function (route) {
-        // Backwards compatibility
-        var hasBreadcrumb = parseFloat(Vue.version) < 2 ? route.handler && route.handler.breadcrumb : route.meta && route.meta.breadcrumb;
-
-        if (hasBreadcrumb) {
-          crumbs.push(route);
-        }
+      return getMatchedRoutes(this.$route.matched).filter(function (route) {
+        return parseFloat(Vue.version) < 2 ? route.handler && route.handler.breadcrumb : route.meta && route.meta.breadcrumb;
       });
-
-      return crumbs;
     }
   });
 
@@ -58,25 +47,22 @@ function install(Vue, options) {
           path: crumb.handler && crumb.handler.fullPath ? crumb.handler.fullPath : crumb.path,
           params: this.$route.params
         };
+      },
+      resolveCrumbName: function resolveCrumbName(crumb) {
+        var crumbName = parseFloat(Vue.version) < 2 ? crumb.handler.breadcrumb : crumb.meta.breadcrumb;
+
+        return typeof crumbName === 'function' ? crumbName(this.$route.params) : crumbName;
       }
     },
 
-    filters: {
-      // Display the correct breadcrumb text
-      // depending on the Vue version
-      crumbText: function crumbText(crumb) {
-        return parseFloat(Vue.version) < 2 ? crumb.handler.breadcrumb : crumb.meta.breadcrumb;
-      }
-    },
-
-    template: '<nav class="breadcrumbs" v-if="$breadcrumbs.length"> ' + '<ul> ' + '<li v-for="crumb in $breadcrumbs"> ' + '<router-link :to="linkProp(crumb)">{{ crumb | crumbText }}</router-link> ' + '</li> ' + '</ul> ' + '</nav>'
+    template: '\n      <nav class="breadcrumbs" v-if="$breadcrumbs.length">\n        <ul>\n          <li v-for="crumb in $breadcrumbs">\n            <router-link :to="linkProp(crumb)">{{ resolveCrumbName(crumb) }}</router-link>\n          </li>\n        </ul>\n      </nav>\n    '
   };
 
-  options = Object.assign(defaults, options);
+  var componentOptions = Object.assign(defaults, options);
 
   // Add a default breadcrumbs component
-  if (options.registerComponent) {
-    Vue.component('breadcrumbs', options);
+  if (componentOptions.registerComponent) {
+    Vue.component('breadcrumbs', componentOptions);
   }
 }
 
