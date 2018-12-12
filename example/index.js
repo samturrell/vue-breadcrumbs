@@ -66,7 +66,7 @@ var AboutFoo = {
 var AboutBar = {
   path: 'bar',
   component: {
-    template: '<p>About our foo!</p>'
+    template: '<p>About our bar!</p>'
   },
   meta: {
     breadcrumb: 'Bar About'
@@ -90,7 +90,6 @@ var About = {
   ]
 }
 
-
 var Item = {
   path: ':id',
   name: 'store-item',
@@ -98,7 +97,9 @@ var Item = {
     template: '<p>test This is item {{ $route.params.id }}</p>'
   },
   meta: {
-    breadcrumb: 'View item'
+    breadcrumb(params) {
+      return 'View item ' + params.id
+    }
   }
 }
 

@@ -43,7 +43,7 @@
   * Docs folder
   * Version bump and updated changelog
 
-1.0.0 / 2017-04-30
+1.0.0 / 2017-04-29
 ==================
 
   * 1.0.0
