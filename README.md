@@ -8,6 +8,8 @@ Vue breadcrumbs builds on the official vue-router package to provide simple brea
  
 [DEMO](https://samturrell.github.io/vue-breadcrumbs/example)
 
+It is created and maintained by the [Netsells team](https://netsells.co.uk/)
+
 ## Installation
 ```html
 <script src="../dist/vue-breadcrumbs.min.js"></script>
